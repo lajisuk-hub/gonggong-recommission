@@ -1,0 +1,22 @@
+{
+  "name": "gonggong-recommission",
+  "version": "0.1.0",
+  "description": "영유아교육디자인연구소 국공립신규위탁 참여신청·설문·결제안내 앱 (신청자/관리자 페이지 분리, Supabase 저장)",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "next": "^14.2.35",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.35"
+  }
+}
