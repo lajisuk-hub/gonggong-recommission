@@ -342,7 +342,11 @@ export default function Home() {
         </div>
       )}
 
-      <div className="foot">영유아교육디자인연구소 · 국공립 신규위탁 과정</div>
+      <div className="foot">
+        영유아교육디자인연구소 · 국공립 신규위탁 과정
+        <br />
+        <a href="/admin">🔒 관리자 페이지</a>
+      </div>
     </div>
   )
 }
