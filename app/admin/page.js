@@ -58,7 +58,7 @@ function SettingsPanel() {
   useEffect(() => {
     (async () => {
       if (!supabase) { setS({}); return }
-      const { data } = await supabase.from('app_settings').select('data').eq('id', SETTINGS_ID).maybeSingle()
+      const { data } = await supabase.from('recom_settings').select('data').eq('id', SETTINGS_ID).maybeSingle()
       setS(data?.data || {})
     })()
   }, [])
@@ -66,7 +66,7 @@ function SettingsPanel() {
   async function save() {
     if (!supabase) { setMsg('저장소 연결이 필요합니다.'); return }
     setBusy(true); setMsg('')
-    const { error } = await supabase.from('app_settings').upsert({ id: SETTINGS_ID, data: s, updated_at: new Date().toISOString() })
+    const { error } = await supabase.from('recom_settings').upsert({ id: SETTINGS_ID, data: s, updated_at: new Date().toISOString() })
     setBusy(false)
     setMsg(error ? '저장 실패: ' + error.message : '저장되었습니다 ✓')
   }
@@ -163,7 +163,7 @@ function AppsPanel() {
 
   async function load() {
     if (!supabase) { setErr('저장소 연결이 필요합니다.'); setRows([]); return }
-    const { data, error } = await supabase.from('applications').select('*').order('created_at', { ascending: false })
+    const { data, error } = await supabase.from('recom_applications').select('*').order('created_at', { ascending: false })
     if (error) { setErr(error.message); setRows([]); return }
     setRows(data || [])
   }
@@ -171,7 +171,7 @@ function AppsPanel() {
 
   async function toggle(row) {
     const next = row.payment_status === '확정' ? '대기' : '확정'
-    await supabase.from('applications').update({ payment_status: next }).eq('id', row.id)
+    await supabase.from('recom_applications').update({ payment_status: next }).eq('id', row.id)
     load()
   }
 

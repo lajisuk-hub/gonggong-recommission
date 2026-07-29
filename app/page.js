@@ -35,7 +35,7 @@ export default function Home() {
   useEffect(() => {
     (async () => {
       if (!supabase) { setLoading(false); return }
-      const { data } = await supabase.from('app_settings').select('data').eq('id', SETTINGS_ID).maybeSingle()
+      const { data } = await supabase.from('recom_settings').select('data').eq('id', SETTINGS_ID).maybeSingle()
       setSettings(data?.data || {})
       setLoading(false)
     })()
@@ -80,7 +80,7 @@ export default function Home() {
     setErr('')
     if (!supabase) { setErr('저장소 연결이 아직 설정되지 않았어요. 관리자에게 문의해 주세요.'); return }
     setSaving(true)
-    const { error } = await supabase.from('applications').insert({
+    const { error } = await supabase.from('recom_applications').insert({
       name: f.name.trim(),
       phone: f.phone.trim(),
       current_region: f.currentRegion.trim(),
