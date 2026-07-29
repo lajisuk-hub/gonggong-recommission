@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { supabase, uploadFile, SETTINGS_ID } from '@/lib/supabase'
 
-const ADMIN_PW = process.env.NEXT_PUBLIC_ADMIN_PW || 'haoraki2026'
+const ADMIN_PW = process.env.NEXT_PUBLIC_ADMIN_PW || '1234'
 const METHOD_LABEL = { card: '카드결제', transfer: '직접이체', org: '기관결제' }
 
 export default function Admin() {
